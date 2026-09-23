@@ -11,12 +11,19 @@
 
 ## 实机演示
 
-| 视觉遥操作 | 抓握与手势变化 |
-| --- | --- |
-| [![人手与灵巧手同框的视觉跟随演示](assets/teleoperation-preview.jpg)](assets/visual-teleoperation.mp4) | [![物体抓握与控制台演示](assets/grasp-preview.jpg)](assets/grasp-and-gestures.mp4) |
-| [观看完整视频 · 约 39 秒](assets/visual-teleoperation.mp4) | [观看完整视频 · 约 31 秒](assets/grasp-and-gestures.mp4) |
+### 视觉连续跟随 · 约 39 秒
 
-左侧展示摄像头输入下的人手与灵巧手动作交互；右侧展示水瓶、胶带等物体的抓握及手势变化。视频为原始时序的压缩静音展示版，未加速；抓握片段展示操作效果，不表示自主视觉抓取或定量负载测试。
+电脑摄像头识别人手姿态，经映射后驱动灵巧手连续跟随。
+
+https://github.com/user-attachments/assets/df0cb85b-9df9-4ab4-b6d7-cffbc413f2c2
+
+### 抓握与手势变化 · 约 31 秒
+
+展示不同物体的抓握和手势切换；物体由人工放置，并非自主视觉抓取。
+
+https://github.com/user-attachments/assets/7b15424b-a8ad-4391-b398-24331e95d8f8
+
+两段视频均保留原始时序，压缩并静音处理，未加速。
 
 ## 01 / 实现了什么
 
