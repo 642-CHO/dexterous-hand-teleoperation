@@ -23,7 +23,7 @@ https://github.com/user-attachments/assets/df0cb85b-9df9-4ab4-b6d7-cffbc413f2c2
 
 https://github.com/user-attachments/assets/7b15424b-a8ad-4391-b398-24331e95d8f8
 
-两段视频均保留原始时序，压缩并静音处理，未加速。
+两段视频均保留原始时序，压缩并静音处理。
 
 ## 01 / 实现了什么
 
