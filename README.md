@@ -29,9 +29,11 @@ https://github.com/user-attachments/assets/7b15424b-a8ad-4391-b398-24331e95d8f8
 
 | 功能 | 实现内容 |
 | --- | --- |
+| 整机结构修改 | 将原设计方案的飞特HL3606舵机更改为符合预算限制的飞特STS3215舵机，并根据外形尺寸、安装孔位等规格上的不同重新建模设计舵机架、卷线盘和掌部结构，调整舵机布置和腱绳走线空间 |
+| 棘轮创新设计 | 创新设计由同轴卷线轮、棘轮齿盘、棘爪座和外部调节旋钮组成的棘轮快速张紧结构。设计过程中曾出现齿向错误、正向阻力过大、啮合复杂等问题，我们通过纠正齿向、增大棘齿盘外径、减小棘爪宽度、调整厚度等方式进行7轮调整，逐步优化，最终的棘轮结构可以非常轻松地对腱绳进行调节，很好地完成了我们的目标。 |
 | 视觉连续跟随 | 通过摄像头识别人手关键点，将手指姿态转换为执行器控制目标，驱动灵巧手随人手动作变化 |
 | 预设手势调用 | 调用预先配置的动作，完成指定手势展示与功能验证 |
-| 本地 Web 控制 | 以网页作为设备操作入口，连接 Python/FastAPI 控制服务与舵机通信模块 |
+| 本地 Web 控制 | 以网页作为设备操作入口，连接 Python/FastAPI 控制服务与舵机通信模块。在UI控制界面中加入运动扭矩上限手动调整功能，并进一步通过速度插值机制，使运动速度和抓握灵敏度之间取得平衡。 |
 | 执行器标定与调试 | 对舵机运动端点与控制参数进行配置，结合实机动作开展联调 |
 
 这里的“七路”指执行器控制通道，不等同于七个完全独立的手指关节；腱驱机构中存在关节耦合。
@@ -76,6 +78,19 @@ https://github.com/user-attachments/assets/7b15424b-a8ad-4391-b398-24331e95d8f8
 
 软件迭代使用 AI 编程工具辅助，个人工作侧重功能需求、集成验证、硬件标定与实机调试。
 
+以下是针对项目过程中零件信息问题难以同步vibecoding的信息集成台：
+https://aerohandreproduction-d4adce3fb40-1454697566.tcloudbaseapp.com
+<img width="511" height="293" alt="image" src="https://github.com/user-attachments/assets/908ab165-a14b-49a9-82b2-3f3b2263dc62" />
+<img width="512" height="287" alt="image" src="https://github.com/user-attachments/assets/3d6974a1-fc81-4203-b625-886d9e8a90dd" />
+<img width="512" height="294" alt="image" src="https://github.com/user-attachments/assets/e5867b7c-4d60-4b5c-8351-ba9478134e50" />
+
+
+控制操作界面
+<img width="515" height="285" alt="image" src="https://github.com/user-attachments/assets/7aa64bd3-abe0-467b-ac27-fe882bbe40ab" />
+<img width="510" height="290" alt="image" src="https://github.com/user-attachments/assets/6efe243f-85fe-465e-a9d8-eb600823cb1f" />
+<img width="513" height="295" alt="image" src="https://github.com/user-attachments/assets/4497295c-72da-4067-9387-42840540ef9a" />
+
+
 ## 04 / 团队结构实践：棘轮式腱绳张紧
 
 针对腱绳张紧与调整需求，团队采用旋钮、卷线盘与棘轮—棘爪座组合结构。旋钮带动卷线盘逐齿收线，棘轮机构限制反向回转，便于调节并保持腱绳张力。
@@ -85,8 +100,11 @@ https://github.com/user-attachments/assets/7b15424b-a8ad-4391-b398-24331e95d8f8
 | ![棘轮张紧结构实物](assets/ratchet-hardware.png) | ![旋钮与卷线盘结构视图](assets/ratchet-cad.png) |
 
 ![棘轮—棘爪座张紧结构原理](assets/ratchet-principle.png)
+<img width="605" height="341" alt="image" src="https://github.com/user-attachments/assets/2ac8fa86-bc05-43ee-b064-f7d4624b2a0d" />
 
-本节展示团队结构成果；个人职责见“我的工作”，不将上述全部 CAD 设计归为个人独立完成。
+
+本项目的主要特色在于以开源灵巧手复现为基础，抓住腱驱动灵巧手长期使用中的实际问题，即腱绳松弛会导致响应延迟、运动死区、抓握力下降和维护效率低。围绕这一工程痛点，设计了棘轮式快速张紧结构，使腱绳能够在不拆解手掌、不重新打结的情况下通过外部旋钮逐齿收紧。
+该结构的创新点主要体现在三个方面：第一，将维护方式转变为外部手动调节，降低了维护门槛和操作时间；第二，棘轮调节过程具有一定可量化特征，相比完全依赖人工经验的重新打结更稳定。第三，棘轮—棘爪结构具备反向自锁能力，张紧后不需要舵机持续输出保持张力，能够减少松弛复发和能量浪费。
 
 ## 05 / 技术组成
 
