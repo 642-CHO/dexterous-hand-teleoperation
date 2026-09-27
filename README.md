@@ -88,7 +88,7 @@ https://aerohandreproduction-d4adce3fb40-1454697566.tcloudbaseapp.com
 <img width="512" height="294" alt="image" src="https://github.com/user-attachments/assets/e5867b7c-4d60-4b5c-8351-ba9478134e50" />
 
 
-控制操作界面
+[打开控制台交互演示 →](https://642-cho.github.io/642-CHO/control-console-demo/)
 
 
 <img width="515" height="285" alt="image" src="https://github.com/user-attachments/assets/7aa64bd3-abe0-467b-ac27-fe882bbe40ab" />
